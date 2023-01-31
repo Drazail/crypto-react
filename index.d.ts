@@ -32,7 +32,7 @@ export function hash(
   encnoder?: Encoder
 ): Promise<string>;
 
-export function JSHmac(
+export function hmac(
   message: string | WordArray,
   secret: string | WordArray,
   algorithm: HmacHasherHelper,
