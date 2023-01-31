@@ -3,9 +3,9 @@
 JavaScript implementations of standard and secure cryptographic algorithms for react
 
 
-- [instalation](https://github.com/Drazail/crypto-react/edit/main/README.md#Getting-started)
+- [instalation](https://github.com/Drazail/crypto-react/blob/main/README.md#Getting-started)
 
-- [simple usecase](https://github.com/Drazail/crypto-react/edit/main/README.md#usage)
+- [simple usecase](https://github.com/Drazail/crypto-react/blob/main/README.md#usage)
 - [namespaces](https://github.com/Drazail/crypto-react/wiki/namespaces)
   - [HashAlgorithms](https://github.com/Drazail/crypto-react/wiki/HashAlgorithms)
   - [HmacAlgorithms](https://github.com/Drazail/crypto-react/wiki/HmacAlgorithms)
