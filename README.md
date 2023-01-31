@@ -21,7 +21,7 @@ JavaScript implementations of standard and secure cryptographic algorithms for r
   
 ## Getting started
 
-`$ npm install react-hash --save`
+`$ npm install crypto-react --save`
 
 ---
 
