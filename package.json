@@ -1,7 +1,7 @@
 {
   "name": "crypto-react",
   "title": "crypto-react",
-  "description": "React library of Cryptography Standard.",
+  "description": "JavaScript library of Cryptography Standard for react.",
   "version": "0.1.0",
   "private": false,
   "repository": {

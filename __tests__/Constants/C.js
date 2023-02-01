@@ -1,5 +1,5 @@
 /* eslint linebreak-style: ["error", "windows"] */
-
+export const messageHash = '78e731027d8fd50ed642340b7c9a63b3';
 export const TestStrings = [
   'us9zV8OHDVBaQH479jDT',
   'jaTFoWMDx3r8Yqm7Cxgw',

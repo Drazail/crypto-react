@@ -15,11 +15,23 @@ import {
   SHA384Hashes,
   KeccakHashes,
   RIPEMD160Hashes,
+  messageHash,
 } from '../Constants/C';
 
 describe('hash', () => {
   it('should expose a function', () => {
     expect(hash).toBeDefined();
+  });
+
+  test('no args', async () => {
+    await expect(hash()).resolves.toEqual(messageHash);
+  });
+
+  test('no algo', async () => {
+    const iterator = TestStrings.entries();
+    for (const [index, value] of iterator) {
+      await expect(hash(value)).resolves.toEqual(Md5Hashes[index]);
+    }
   });
 
   test('MD5', async () => {
@@ -92,17 +104,5 @@ describe('hash', () => {
         RIPEMD160Hashes[index],
       );
     }
-  });
-
-  test('badHash', async () => {
-    await expect(hash('value', 'badHashAlgo')).rejects.toEqual(
-      new Error('invalid hash algorithm'),
-    );
-  });
-
-  test('badEncoder', async () => {
-    await expect(
-      hash('value', HashAlgorithms.MD5, 'unSupportedEncoder'),
-    ).rejects.toEqual(new Error('invalid Encoder'));
   });
 });

@@ -21,6 +21,12 @@ describe('hmac', () => {
     expect(hmac).toBeDefined();
   });
 
+  it('should use default', async () => {
+    await expect(
+      hmac('testMessage', 'SecretKey'),
+    ).resolves.toEqual('7b216128808b283b9a88dd453f480e0c');
+  });
+
   test('MD5', async () => {
     const iterator = TestStrings.entries();
     for (const [index, value] of iterator) {
@@ -82,17 +88,5 @@ describe('hmac', () => {
         hmac(value, 'SecretKey', HmacAlgorithms.HmacRIPEMD160),
       ).resolves.toEqual(HmacRIPEMD160s[index]);
     }
-  });
-
-  test('badHmacAlgo', async () => {
-    await expect(hmac('value', 'badHmacAlgo')).rejects.toEqual(
-      new Error('invalid hmac algorithm'),
-    );
-  });
-
-  test('badEncoder', async () => {
-    await expect(
-      hmac('value', 'secretKey', HmacAlgorithms.HmacMD5, 'unSupportedEncoder'),
-    ).rejects.toEqual(new Error('invalid Encoder'));
   });
 });

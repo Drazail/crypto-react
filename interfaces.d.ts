@@ -1,4 +1,4 @@
-interface WordArray {
+export interface WordArray {
   /**
    * The array of 32-bit words.
    */
@@ -56,15 +56,28 @@ interface WordArray {
   clone(): WordArray;
 }
 
-interface HmacHasherHelper {
+export interface HmacHasherHelper {
   (message: WordArray | string, key: WordArray | string): WordArray;
 }
 
-interface HasherHelper {
+export interface HasherHelper {
   (message: WordArray | string, cfg?: object): WordArray;
 }
 
-interface Encoder {
+export interface useHashConfig {
+  message?: WordArray | string;
+  algorithm?: HasherHelper;
+  encoder?: Encoder;
+}
+
+export interface useHmacConfig {
+  message?: WordArray | string;
+  secret?: string;
+  algorithm?: HmacHasherHelper;
+  encoder?: Encoder;
+}
+
+export interface Encoder {
   /**
    * Converts a word array to a string.
    *

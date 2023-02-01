@@ -30,18 +30,18 @@ JavaScript implementations of standard and secure cryptographic algorithms for r
 ### hash
 ```javascript
 import { hash, HashAlgorithms, Encoders } from 'crypto-react';
-const hashedMessage = hash('Message', HashAlgorithms.SHA256, Encoders.hex);
+hash('Message', HashAlgorithms.SHA256, Encoders.hex).then((hashedMessage)=>console.log(hashedMessage));
 ```
 ***
 
 ### hmac
 ```javascript
 import { hmac, HmacAlgorithms, Encoders } from 'crypto-react';
-const hmacMessage = hmac(
+hmac(
   'Message',
   'SecretKey',
   HmacAlgorithms.HmacSHA256,
   Encoders.hex,
-);
+).then((hmacMessage)=>console.log(hmacMessage));;
 
 ```

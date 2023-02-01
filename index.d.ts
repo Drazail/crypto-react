@@ -1,3 +1,12 @@
+import {
+  Encoder,
+  HasherHelper,
+  HmacHasherHelper,
+  useHashConfig,
+  useHmacConfig,
+  WordArray,
+} from "./interfaces";
+
 export namespace HashAlgorithms {
   export const MD5: HasherHelper;
   export const SHA1: HasherHelper;
@@ -39,24 +48,9 @@ export function hmac(
   encoder?: Encoder
 ): Promise<string>;
 
-/*
 export function useHash(
-  hmacAlgo?: typeof CONSTANTS.HashAlgorithms[keyof typeof CONSTANTS.HashAlgorithms],
-  initialMessage?: string
-): [
-  hashed: string,
-  setMessage: (message: string) => Promise<void>,
-  setAlgo: (algo: string) => Promise<void>
-];
-
+  config: useHashConfig
+): [hashed: string, setConfig: (config: useHashConfig) => Promise<void>];
 export function useHmac(
-  hmacAlgo?: typeof CONSTANTS.HmacAlgorithms[keyof typeof CONSTANTS.HmacAlgorithms],
-  initialMessage?: string,
-  initialSecret?: string
-): [
-  hashed: string,
-  setMessage: (message: string) => Promise<void>,
-  setAlgo: (algo: string) => Promise<void>,
-  setSecret: (secret: string) => Promise<void>
-];
-*/
+  config: useHmacConfig
+): [hmacMessage: string, setConfig: (config: useHmacConfig) => Promise<void>];
