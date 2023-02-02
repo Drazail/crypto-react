@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import hmac from '.';
+import hmac from './hmac';
 import Encoders from '../Encoders/Encoders';
 import HmacAlgorithms from './Algorithms';
 
@@ -20,8 +20,12 @@ const useHmac = (
   });
   const [hmacMessage, setHmacMessage] = useState();
   useEffect(() => {
-    const hmacHasher = () => hmac(cfg.message, cfg.secret, cfg.algorithm, cfg.encoder)
-      .then((a) => setHmacMessage(a));
+    const hmacHasher = () => hmac(
+      cfg.message,
+      cfg.secret,
+      cfg.algorithm,
+      cfg.encoder,
+    ).then((a) => setHmacMessage(a));
     hmacHasher();
   }, [cfg]);
 

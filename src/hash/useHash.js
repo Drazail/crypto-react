@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import hash from '.';
+import hash from './hash';
 import Encoders from '../Encoders/Encoders';
 import HashAlgorithms from './Algorithms';
 

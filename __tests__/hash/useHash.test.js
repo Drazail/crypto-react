@@ -19,6 +19,7 @@ import {
   SHA512Hashes,
   KeccakHashes,
 } from '../Constants/C';
+import Encoders from '../../src/Encoders/Encoders';
 
 /**
  * hashedMessage == result.current[0]
@@ -46,12 +47,14 @@ test('should update message', async () => {
   await waitFor(() => expect(result.current[0]).toBe('1ddfe493cdf4176866742a4afa04c840'));
 });
 
-test('should update algo', async () => {
-  const { result } = renderHook(() => useHash({ message: 'testMessage', algorithm: HashAlgorithms.MD5 }));
+test('should update message', async () => {
+  const { result } = renderHook(() => useHash());
 
-  await waitFor(() => expect(result.current[0]).toBe('c703b927a0c5d56e5a33c4b834053bd4'));
-  act(() => result.current[1]({ algorithm: HashAlgorithms.SHA1 }));
-  await waitFor(() => expect(result.current[0]).toBe('d2581121a80ea419e91878d321100cc99dfb21db'));
+  await waitFor(() => expect(result.current[0]).toBe('78e731027d8fd50ed642340b7c9a63b3'));
+  act(() => result.current[1]({ message: 'testMessage1' }));
+  await waitFor(() => expect(result.current[0]).toBe('dccf67b5b214dc38e729958f6a6be829'));
+  act(() => result.current[1]({ message: 'testMessage2' }));
+  await waitFor(() => expect(result.current[0]).toBe('1ddfe493cdf4176866742a4afa04c840'));
 });
 
 test('should pass all test strings for MD5', async () => {

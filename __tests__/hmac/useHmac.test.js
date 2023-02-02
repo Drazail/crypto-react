@@ -45,6 +45,16 @@ test('should update message', async () => {
   await waitFor(() => expect(result.current[0]).toBe('0cc80d81ca954657d77cfd055fbe5bec'));
 });
 
+test('should update secret', async () => {
+  const { result } = renderHook(() => useHmac());
+
+  await waitFor(() => expect(result.current[0]).toBe('77e917af56a94a97ed23a8e7d7a7b34e'));
+  act(() => result.current[1]({ secret: 'SecretKey1' }));
+  await waitFor(() => expect(result.current[0]).toBe('4047cd382895530271b676d2b7eff25e'));
+  act(() => result.current[1]({ secret: 'SecretKey2' }));
+  await waitFor(() => expect(result.current[0]).toBe('e2278688576a0434ad939b21a2eb5372'));
+});
+
 test('should update algo', async () => {
   const { result } = renderHook(() => useHmac({ message: 'testMessage', algorithm: HmacAlgorithms.HmacMD5 }));
   await waitFor(() => expect(result.current[0]).toBe('7b216128808b283b9a88dd453f480e0c'));

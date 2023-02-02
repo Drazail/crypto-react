@@ -1,11 +1,4 @@
-import HmacAlgorithms from './Algorithms';
-import Encoders from '../Encoders/Encoders';
-
-const hmac = async (
-  message,
-  secret,
-  algorithm = HmacAlgorithms.HmacMD5,
-  encoder = Encoders.hex,
-) => encoder.stringify(algorithm(message, secret));
+import hmac from './hmac';
 
 export default hmac;
+export { default as useHmac } from './useHmac';
